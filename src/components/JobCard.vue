@@ -1,12 +1,18 @@
 <template>
-  <div class="job-card">
-    <span>@{{ job.time }} on {{ job.date }}</span>
-    <h4>{{ job.title }}</h4>
-  </div>
+  <b-list-group-item class="d-flex align-items-center">
+    <b-avatar
+      variant="info"
+      src="https://placekitten.com/300/300"
+      class="mx-3"
+    ></b-avatar>
+    <span class="me-auto">Super Kitty</span>
+    <b-badge>9</b-badge>
+  </b-list-group-item>
 </template>
 
 <script>
 export default {
+  name: "JobCard",
   props: {
     job: {
       type: Object,
