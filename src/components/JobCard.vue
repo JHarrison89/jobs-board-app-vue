@@ -5,8 +5,8 @@
       src="https://placekitten.com/300/300"
       class="mx-3"
     ></b-avatar>
-    <span class="me-auto">Super Kitty</span>
-    <b-badge>9</b-badge>
+    <span class="me-auto">{{ job.title }}</span>
+    <b-badge>{{ job.id }}</b-badge>
   </b-list-group-item>
 </template>
 
