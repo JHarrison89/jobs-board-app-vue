@@ -1,9 +1,11 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <b-container class="bg-white">
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </nav>
+    <router-view />
+  </b-container>
 </template>
 
 <style lang="scss">
@@ -26,5 +28,8 @@ nav {
       color: #42b983;
     }
   }
+}
+body {
+  background-color: rgba(199, 237, 239, 0.968) !important;
 }
 </style>

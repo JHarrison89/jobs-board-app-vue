@@ -1,32 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <JobCard v-for="job in jobs" :key="job.id" :job="job" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="row">
+    <div class="col-12 col-md-4 bg-warning">.col-12 .col-md-8</div>
+    <div class="col-12 col-md-8 bg-info">
+      <JobCardPagination></JobCardPagination>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import JobCard from "@/components/JobCard.vue";
-import api from "@/api";
+import JobCardPagination from "@/components/JobCardPagination.vue";
 
 export default {
   name: "HomeView",
   components: {
-    JobCard,
-  },
-  data() {
-    return {
-      jobs: [],
-      isLoading: true,
-    };
-  },
-  created() {
-    api.getJobs().then((response) => {
-      this.jobs = response.data;
-      this.isLoading = false;
-    });
+    JobCardPagination,
   },
 };
 </script>
