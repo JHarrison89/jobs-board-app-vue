@@ -14,38 +14,39 @@
 <script>
 import JobCard from "@/components/JobCard.vue";
 import api from "@/api";
+import { ref, computed, onMounted } from "vue";
 
 export default {
   name: "JobCardPagintion",
   components: {
     JobCard,
   },
-  data() {
-    return {
-      jobs: [],
-      currentPage: 1,
-      isLoading: true,
-    };
-  },
-  created() {
-    api.getJobs().then((response) => {
-      this.jobs = response.data;
-      this.isLoading = false;
+  setup() {
+    const jobs = ref([]);
+    const currentPage = ref(1);
+    const perPage = 8;
+    const rows = computed(() => {
+      return jobs.value.length;
     });
-  },
-  computed: {
-    perPage() {
-      return 8;
-    },
-    rows() {
-      return this.jobs.length;
-    },
-    jobList() {
-      return this.jobs.slice(
-        (this.currentPage - 1) * this.perPage,
-        this.currentPage * this.perPage
+    const jobList = computed(() => {
+      return jobs.value.slice(
+        (currentPage.value - 1) * perPage,
+        currentPage.value * perPage
       );
-    },
+    });
+
+    onMounted(async () => {
+      await api.getJobs().then((response) => {
+        jobs.value = response.data;
+      });
+    });
+
+    return {
+      jobList,
+      currentPage,
+      perPage,
+      rows,
+    };
   },
 };
 </script>
