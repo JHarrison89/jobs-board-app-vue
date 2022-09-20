@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     perPage() {
-      return 10;
+      return 8;
     },
     rows() {
       return this.jobs.length;
