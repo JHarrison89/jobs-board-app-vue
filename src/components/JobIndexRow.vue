@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "JobCard",
+  name: "JobIndexRow",
   props: {
     job: {
       type: Object,
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.job-card {
+.job-index-row {
   padding: 20px;
   width: 250px;
   cursor: pointer;
@@ -31,7 +31,7 @@ export default {
   margin-bottom: 18px;
 }
 
-.job-card:hover {
+.job-index-row:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
 }
