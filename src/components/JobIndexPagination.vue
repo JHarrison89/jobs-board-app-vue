@@ -41,10 +41,34 @@ function paginateJobs() {
   });
 
   onMounted(async () => {
-    await api.getJobs().then((response) => {
-      jobs.value = response.data;
-    });
+    await api
+      .getJobs()
+      .then((response) => {
+        jobs.value = response.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   });
+
+  // onMounted(async () => {
+  //   try {
+  //     jobs.value = await api.getJobs();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // });
+
+  // onMounted(async () => {
+  //   api
+  //     .getJobs()
+  //     .then((response) => {
+  //       jobs.value = response.data;
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // });
 
   return {
     jobList,

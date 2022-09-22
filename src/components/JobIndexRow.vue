@@ -7,6 +7,7 @@
     ></b-avatar>
     <span class="me-auto">{{ job.title }}</span>
     <b-badge>{{ job.id }}</b-badge>
+    <router-link :to="`${job.id}`">{{ job.id }}</router-link>
   </b-list-group-item>
 </template>
 
